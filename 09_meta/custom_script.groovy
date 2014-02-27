@@ -1,3 +1,7 @@
+import groovy.transform.*
+import org.codehaus.groovy.control.customizers.ASTTransformationCustomizer
+import org.codehaus.groovy.control.CompilerConfiguration
+import groovy.transform.Canonical
 
 // Simple Car class to save state and distance.
 class Car {
@@ -43,5 +47,8 @@ stop()
 shell.evaluate carDsl
 
 // Checks to see that Car object has changed.
-assert car.distance == 20
-assert car.state == 'stopped'
+println car.distance
+println car.state
+println car.toString()
+
+
