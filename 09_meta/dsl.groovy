@@ -1,6 +1,18 @@
-def take(numberOfDrugs){
-  [ of: { drugName -> println "hello $drugName"} ]
+enum Surgery {
+  amputation, rectoscopy
+}
+
+Integer.metaClass.getHours = {-> delegate}
+
+import static Surgery.*
+
+def doctor(String name) {
+  [ "was" : {Integer i->
+    [ "_in" :{ Surgery s->
+        println "$name was $i hours in an $s"
+      }]  
+    }]
 }
 
 
-take 3 of "bla"
+doctor "lector" was 4.hours _in amputation
